@@ -5,6 +5,7 @@ pipeline {
             steps {
                 echo 'Building...'
                 sh '/Users/e.abdelaziz/IdeaProjects/Mongodb_cluster_on_Kubernetes/scripts/generate'
+                echo 'Mongodb built successfully'
             }
         }
         stage('Test') {
