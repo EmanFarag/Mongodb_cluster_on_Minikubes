@@ -16,6 +16,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying...'
+                sh '/Users/e.abdelaziz/IdeaProjects/Mongodb_cluster_on_Minikubes/scripts/delete_service.sh'
             }
         }
     }
