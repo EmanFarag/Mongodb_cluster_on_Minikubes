@@ -1,5 +1,17 @@
-pipeline {
+#!/usr/bin/env groovy
+
+import hudson.model.*
+import hudson.EnvVars
+import groovy.json.JsonSlurperClassic
+import groovy.json.JsonBuilder
+import groovy.json.JsonOutput
+import java.net.URL
+import java.lang.String
+import groovy.lang.Closure
+
+node('mongodb-automation')  {
     agent any
+
     stages {
         stage('build') {
             steps {
@@ -9,9 +21,9 @@ pipeline {
             }
         }
         stage('Test') {
-             steps {
-                 echo 'Testing...'
-             }
+            steps {
+                echo 'Testing...'
+            }
         }
         stage('Deploy') {
             steps {
