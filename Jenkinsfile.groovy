@@ -4,20 +4,18 @@ pipeline {
         stage('build') {
             steps {
                 echo 'Building...'
-                sh '/Users/e.abdelaziz/IdeaProjects/Mongodb_cluster_on_Minikubes/up_mongodb_minikube'
+                sh '/Users/e.abdelaziz/IdeaProjects/Mongodb_cluster_on_Minikubes/scripts/generate.sh'
                 echo 'Mongodb built successfully'
             }
         }
         stage('Test') {
              steps {
                  echo 'Testing...'
-                 sh 'python --version'
              }
         }
         stage('Deploy') {
             steps {
-                echo 'Testing...'
-                sh 'python --version'
+                echo 'Deploying...'
             }
         }
     }

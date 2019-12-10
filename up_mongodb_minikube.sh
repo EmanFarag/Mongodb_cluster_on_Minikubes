@@ -14,8 +14,10 @@ case "not found" in
         exit 1
         ;;
 esac
-
+docker-compose down
+docker-compose up -d
 echo -e "\t1. Starting Kubernetes cluster."
+
 minikube start
 kubectl get nodes
 kubectl describe nodes
