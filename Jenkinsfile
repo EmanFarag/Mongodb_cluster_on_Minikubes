@@ -9,7 +9,7 @@ import java.net.URL
 import java.lang.String
 import groovy.lang.Closure
 
-node('mongodb-automation')  {
+node('master')  {
     agent any
 
     stages {
