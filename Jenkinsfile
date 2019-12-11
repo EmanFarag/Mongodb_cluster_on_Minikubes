@@ -9,7 +9,7 @@ import java.net.URL
 import java.lang.String
 import groovy.lang.Closure
 
-node('master')  {
+pipeline {
     agent any
 
     stages {
