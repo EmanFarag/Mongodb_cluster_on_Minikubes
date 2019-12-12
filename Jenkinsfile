@@ -16,6 +16,7 @@ pipeline {
         stage('build') {
             steps {
                 echo 'Building...'
+                sh 'chmod 777 ./generate.sh'
                 sh './generate.sh'
                 echo 'Mongodb built successfully'
             }
