@@ -14,18 +14,22 @@ case "not found" in
         exit 1
         ;;
 esac
+echo -e "Building Jenkins image."
 docker-compose down
 docker-compose up -d
-echo -e "\t1. Starting Kubernetes cluster."
 
+echo -e "\t1. Starting Kubernetes cluster."
 minikube start
+
+echo -e "\n\t2. Evaling the minikube VM docker environment variables."
+eval "$(minikube docker-env)"
+
+
+echo -e "\t3. Checking All pods and containers are running."
 kubectl get nodes
 kubectl describe nodes
 kubectl get services
-
-
-echo -e "\t2. Checking All pods and containers are running."
 kubectl get all
 
-echo -e "\n\t3. Starting kubernetes dashboard."
+echo -e "\n\t4. Starting kubernetes dashboard."
 minikube dashboard
