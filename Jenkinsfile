@@ -11,13 +11,12 @@ import groovy.lang.Closure
 
 pipeline {
     agent any
-
     stages {
         stage('build') {
             steps {
                 echo 'Building...'
                 sh 'chmod 777 ./generate.sh'
-                sh '*/generate.sh'
+                sh './generate.sh'
                 echo 'Mongodb built successfully'
             }
         }
@@ -29,7 +28,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying...'
-                sh '*/delete_service.sh'
+                sh './delete_service.sh'
             }
         }
     }
