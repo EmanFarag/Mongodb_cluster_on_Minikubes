@@ -22,6 +22,10 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing...'
+                sh 'python test-suite/functional-tests/login.py'
+                sh 'python test-suite/functional-tests/data_insertion.py'
+                sh 'python test-suite/functional-tests/replication_test.py'
+                sh 'python test-suite/performance-tests/restart_service.py'
             }
         }
         stage('Deploy') {

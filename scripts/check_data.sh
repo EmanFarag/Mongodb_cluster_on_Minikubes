@@ -14,7 +14,7 @@ fi
 kubectl exec -it mongod-"${1}" -c mongod-container bash
 
 # Authenticate the connection
-kubectl exec mongod-0 -c mongod-container -- mongo --eval 'db.getSiblingDB("admin").auth("main_admin", "admin");'
+kubectl exec mongod-0 -c mongod-container -- mongo --eval 'db.getSiblingDB('"'"'admin'"'"').auth("main_admin", "admin");'
 
 # This allows the current connection to allow read operations to run on secondary members.
 kubectl exec mongod-0 -c mongod-container -- mongo --eval 'rs.slaveOk();'

@@ -7,7 +7,7 @@
 kubectl exec -it mongod-0 -c mongod-container bash
 
 # Authenticate the connection
-kubectl exec mongod-0 -c mongod-container -- mongo --eval 'db.getSiblingDB("admin").auth("main_admin", "admin");'
+kubectl exec mongod-0 -c mongod-container -- mongo --eval 'db.getSiblingDB('"'"'admin'"'"').auth("main_admin", "admin");';
 
 # This allows the current connection to allow read operations to run on secondary members.
 kubectl exec mongod-0 -c mongod-container -- mongo --eval 'rs.slaveOk();'
@@ -16,9 +16,11 @@ kubectl exec mongod-0 -c mongod-container -- mongo --eval 'rs.slaveOk();'
 kubectl exec mongod-0 -c mongod-container -- mongo --eval 'use test;'
 
 # Insert some data to database
-kubectl exec mongod-0 -c mongod-container -- mongo --eval 'db.testcoll.insert({name:John});'
-kubectl exec mongod-0 -c mongod-container -- mongo --eval 'db.testcoll.insert({name:Emma});'
+kubectl exec mongod-0 -c mongod-container -- mongo --eval 'db.testcoll.insert({a:1});'
+kubectl exec mongod-0 -c mongod-container -- mongo --eval 'db.testcoll.insert({b:2});'
 
 # View the data inserted
 kubectl exec mongod-0 -c mongod-container -- mongo --eval 'db.testcoll.find();'
+exit
+exit
 
