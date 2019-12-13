@@ -4,7 +4,7 @@
 ##
 # Check for database replica argument
 if [[ $# -eq 0 ]] ; then
-    echo 'You must provide one argument for the password of the "main_admin" user to be created'
+    echo 'You must provide one argument for the database replica'
     echo
     exit 1
 fi
