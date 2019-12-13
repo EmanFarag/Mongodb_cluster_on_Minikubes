@@ -1,6 +1,6 @@
 #!/bin/sh
 ##
-# Script to deploy a Kubernetes project with a StatefulSet running a MongoDB Replica Set, to a local Minikube environment.
+# Script to deploy a Kubernetes with a StatefulSet running a MongoDB Replica Set, to a local Minikube environment.
 ##
 echo "Keep running the following command until all 'mongod-n' pods are shown as running:  kubectl get all"
 
@@ -14,10 +14,8 @@ rm $TMPFILE
 kubectl apply -f ../resources/mongodb-service.yaml --validate=true
 
 
-# Print current deployment state (unlikely to be finished yet)
+# Print current deployment state
 kubectl get all
 kubectl get persistentvolumes
-echo
 echo "Keep running the following command until all 'mongod-n' pods are shown as running:  kubectl get all"
-echo
 

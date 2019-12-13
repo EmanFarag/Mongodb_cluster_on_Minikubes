@@ -15,7 +15,7 @@ pipeline {
         stage('build') {
             steps {
                 echo 'Building...'
-                sh 'scripts/generate.sh'
+                sh 'scripts/build.sh'
                 echo 'Mongodb built successfully'
             }
         }
@@ -27,7 +27,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying...'
-                sh 'scripts/delete_service.sh'
+                sh 'scripts/undeploy_service.sh'
             }
         }
     }
