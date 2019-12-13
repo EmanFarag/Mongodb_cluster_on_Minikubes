@@ -18,4 +18,5 @@ kubectl apply -f ../resources/mongodb-service.yaml --validate=true
 kubectl get all
 kubectl get persistentvolumes
 echo "Keep running the following command until all 'mongod-n' pods are shown as running:  kubectl get all"
-
+sleep 20
+kubectl get all
